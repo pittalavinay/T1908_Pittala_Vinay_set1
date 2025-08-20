@@ -45,9 +45,16 @@ V4,100,115,8
 
 ## Sample Output
 ```
-Average Speed: 85.0
-Average Temperature: 110.0
-Average Fuel: 19.5
+Average Speed: 48.8056858014997
+Average Temperature: 106.250547966467
+Average Fuel: 39.7188541564077
+Time (ms): 10
+
+--- Multi-threaded Results ---
+Average Speed: 64.82529763087844
+Average Temperature: 116.85656040085277
+Average Fuel: 70.83597423072062
+Time (ms): 10
 
 Alerts:
 Critical Overheating for Vehicle V2
@@ -58,3 +65,21 @@ Low Fuel Warning for Vehicle V4
 
 ## Running Tests
 JUnit tests are provided for both `Vehicle` and `FleetManager` classes. Use your IDE or build tool to run the tests in `VehicleTest.java` and `FleetManagerTest.java`.
+
+### Test Cases
+- Vehicle with temperature=120 triggers 'Critical Overheating'.
+- Vehicle with fuel=10 triggers 'Low Fuel Warning'.
+- Fleet with speeds [80, 90, 100] computes average speed = 90.
+- Boundary cases: temperature=110 does NOT trigger alert, fuel=15 does NOT trigger warning.
+- Empty dataset throws an exception.
+
+### Test Output
+```
+All tests passed.
+- VehicleTest: testCriticalOverheatingAlert PASSED
+- VehicleTest: testLowFuelWarningAlert PASSED
+- VehicleTest: testTemperatureBoundaryNoAlert PASSED
+- VehicleTest: testFuelBoundaryNoWarning PASSED
+- FleetManagerTest: testAverageSpeedCalculation PASSED
+- FleetManagerTest: testEmptyDatasetThrowsException PASSED
+```
